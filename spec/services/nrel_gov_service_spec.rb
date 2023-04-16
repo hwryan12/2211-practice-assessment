@@ -7,7 +7,7 @@ describe 'NrelService' do
         location = '5224+W+25th+Ave+Denver+CO+80214'
 
         results = NrelGovService.new.station(location)
-        # binding.pry
+
         expect(results).to be_a(Hash)
         expect(results[:features]).to be_an(Array)
         expect(results[:features][0]).to be_a(Hash)

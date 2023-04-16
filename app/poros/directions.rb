@@ -13,7 +13,7 @@ class Directions
   def directions_formatter(data)
     data[:legs][0][:maneuvers].map do |maneuver|
       maneuver[:narrative]
-    end.join('/n')
+    end
   end
 
   def travel_time_formatter(data)

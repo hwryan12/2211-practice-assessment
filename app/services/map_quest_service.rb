@@ -1,6 +1,6 @@
 class MapQuestService
-  def get_directions(start_location, end_location)
-    get_url("/directions/v2/route?from=#{start_location}&to=#{end_location}")
+  def get_directions(origin, destination)
+    get_url("/directions/v2/route?from=#{origin}&to=#{destination}")
   end
 
   private
