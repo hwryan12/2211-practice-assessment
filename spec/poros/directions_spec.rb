@@ -5,11 +5,15 @@ RSpec.describe Directions do
     data = {
       :distance=> 10.0,
       :formattedTime=> "00:10:00",
-      :maneuvers=> [
-        "Start out going east on 25th Ave toward W 52nd Ave.",
-        "Turn left onto W 52nd Ave.",
-        "Turn right onto Depew St.",
-        "Arrive at 2027 Depew St."
+      :legs=> [
+        {
+          :maneuvers=> [
+              { :narrative=> "Start out going east on 25th Ave toward W 52nd Ave." },
+              { :narrative=> "Turn left onto W 52nd Ave." },
+              { :narrative=> "Turn right onto Depew St." },
+              { :narrative=> "Arrive at 2027 Depew St." }
+          ]
+        }
       ]
     }
 
@@ -17,12 +21,7 @@ RSpec.describe Directions do
 
     expect(directions).to be_a(Directions)
     expect(directions.distance).to eq(10.0)
-    expect(directions.travel_time).to eq("00:10:00")
-    expect(directions.directions).to eq([ 
-      "Start out going east on 25th Ave toward W 52nd Ave.",  
-      "Turn left onto W 52nd Ave.",  
-      "Turn right onto Depew St.",  
-      "Arrive at 2027 Depew St." 
-    ])
+    expect(directions.travel_time).to eq("10 min 0 sec")
+    expect(directions.directions).to eq("Start out going east on 25th Ave toward W 52nd Ave./nTurn left onto W 52nd Ave./nTurn right onto Depew St./nArrive at 2027 Depew St.")
   end
 end
